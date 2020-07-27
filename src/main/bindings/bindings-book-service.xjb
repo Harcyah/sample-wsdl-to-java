@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings
+        version="2.1"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:annox="http://annox.dev.java.net"
+        jaxb:extensionBindingPrefixes="annox">
+
+    <!-- schemaLocation: we're using a WSDL file, so this attribute must target this file -->
+    <!-- node: xpath expressions targetting every complexTypes in this wsdl -->
+    <jaxb:bindings schemaLocation="../wsdl/book-service.wsdl" node="/wsdl:definitions/wsdl:types/xs:schema[position()=1]">
+        <jaxb:bindings multiple="true" node="//xs:complexType">
+            <annox:annotateClass>@lombok.NoArgsConstructor</annox:annotateClass>
+            <annox:annotateClass>@lombok.AllArgsConstructor</annox:annotateClass>
+            <annox:annotateClass>@lombok.Builder</annox:annotateClass>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>

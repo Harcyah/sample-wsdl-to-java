@@ -1,10 +1,10 @@
 package com.harcyah.sample.wsdl_to_java;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AddBookTest {
+class AddBookTest {
 
     @Test
     public void testAddBookHasNoArgsConstructor() {

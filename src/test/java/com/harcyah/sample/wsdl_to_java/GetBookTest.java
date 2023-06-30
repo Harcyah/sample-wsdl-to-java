@@ -7,14 +7,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GetBookTest {
 
     @Test
-    public void testGetBookHasNoArgsConstructor() {
+    void testGetBookHasNoArgsConstructor() {
         GetBook getBook = new GetBook();
 
         assertThat(getBook.getID()).isNull();
     }
 
     @Test
-    public void testGetBookHasAllArgsConstructor() {
+    void testGetBookHasAllArgsConstructor() {
         GetBook getBook = new GetBook("foo");
 
         assertThat(getBook.getID()).isEqualTo("foo");
@@ -22,7 +22,7 @@ class GetBookTest {
     }
 
     @Test
-    public void testGetBookHasAllBuilder() {
+    void testGetBookHasAllBuilder() {
         GetBook getBook = GetBook.builder().id("Beuh").build();
 
         assertThat(getBook.getID()).isEqualTo("Beuh");

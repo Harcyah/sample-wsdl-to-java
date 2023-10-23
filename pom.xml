@@ -110,59 +110,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.15.3</version>
-                <configuration>
-                    <extension>true</extension>
-                    <args>
-                        <arg>-Xannotate</arg>
-                    </args>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.jvnet.jaxb2_commons</groupId>
-                            <artifactId>jaxb2-basics-annotate</artifactId>
-                            <version>1.1.0</version>
-                        </plugin>
-                    </plugins>
-                    <schemaLanguage>WSDL</schemaLanguage>
-                    <markGenerated>true</markGenerated>
-                    <bindingDirectory>${basedir}/src/main/bindings/</bindingDirectory>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok</artifactId>
-                        <version>1.18.30</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>generate_book_service_classes</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <generatePackage>com.harcyah.sample.wsdl_to_java</generatePackage>
-                            <generateDirectory>${project.build.directory}/generated-sources/xjc-book-service</generateDirectory>
-                            <bindingIncludes>
-                                <bindingInclude>bindings-book-service.xjb</bindingInclude>
-                            </bindingIncludes>
-                            <schemas>
-                                <schema>
-                                    <fileset>
-                                        <directory>${basedir}/src/main/wsdl</directory>
-                                        <includes>
-                                            <include>book-service.wsdl</include>
-                                        </includes>
-                                    </fileset>
-                                </schema>
-                            </schemas>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
@@ -302,6 +249,59 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>3.1.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.15.3</version>
+                <configuration>
+                    <extension>true</extension>
+                    <args>
+                        <arg>-Xannotate</arg>
+                    </args>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics-annotate</artifactId>
+                            <version>1.1.0</version>
+                        </plugin>
+                    </plugins>
+                    <schemaLanguage>WSDL</schemaLanguage>
+                    <markGenerated>true</markGenerated>
+                    <bindingDirectory>${basedir}/src/main/bindings/</bindingDirectory>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>1.18.30</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>generate_book_service_classes</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <generatePackage>com.harcyah.sample.wsdl_to_java</generatePackage>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-book-service</generateDirectory>
+                            <bindingIncludes>
+                                <bindingInclude>bindings-book-service.xjb</bindingInclude>
+                            </bindingIncludes>
+                            <schemas>
+                                <schema>
+                                    <fileset>
+                                        <directory>${basedir}/src/main/wsdl</directory>
+                                        <includes>
+                                            <include>book-service.wsdl</include>
+                                        </includes>
+                                    </fileset>
+                                </schema>
+                            </schemas>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

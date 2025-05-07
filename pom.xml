@@ -314,6 +314,7 @@
                     <schemaLanguage>WSDL</schemaLanguage>
                     <markGenerated>true</markGenerated>
                     <bindingDirectory>${basedir}/src/main/bindings/</bindingDirectory>
+                    <generateDirectory>${project.build.directory}/generated-sources/java/maven-jaxb2-plugin/</generateDirectory>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -330,7 +331,6 @@
                         </goals>
                         <configuration>
                             <generatePackage>com.harcyah.sample.wsdl_to_java</generatePackage>
-                            <generateDirectory>${project.build.directory}/generated-sources/xjc-book-service</generateDirectory>
                             <bindingIncludes>
                                 <bindingInclude>bindings-book-service.xjb</bindingInclude>
                             </bindingIncludes>
